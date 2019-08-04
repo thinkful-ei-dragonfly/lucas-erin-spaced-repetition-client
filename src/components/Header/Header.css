@@ -26,3 +26,14 @@ header{
 .header-link:hover{
   text-decoration: underline;
 }
+
+@media screen and (max-width: 450px){
+  .main-link{
+    margin-top: 5px;
+    font-size: 22px;
+  }
+
+  .header-link{
+    font-size: 14px;
+  }
+}
