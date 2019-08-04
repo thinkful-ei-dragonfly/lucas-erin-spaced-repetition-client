@@ -15,3 +15,21 @@ body {
 :root {
   --font-size: calc(10px + 1vmin);
 }
+
+.sign-up, .log-in{
+  font-size: 30px;
+  text-align: center;
+  margin: 15px auto;
+} 
+
+.log-in{
+  margin: 75px auto 15px auto;
+}
+
+.tagline{
+  width:75%;
+  font-size: 20px;
+  text-align: center;
+  margin: 75px auto 25px auto;
+  background: rgb(241, 241, 241);
+}

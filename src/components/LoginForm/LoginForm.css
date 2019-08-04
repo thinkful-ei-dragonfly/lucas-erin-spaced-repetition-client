@@ -1,4 +1,4 @@
-#registration-box{
+.LoginForm{
   width: 80%;
   background: lightgrey;
   margin: 25px auto;
@@ -14,11 +14,6 @@
 
 footer{
   text-align: center;
-}
-
-.login-link{
-  font-size: 14px;
-  margin: auto;
 }
 
 .Button{
@@ -54,7 +49,7 @@ footer{
 }
 
 @media screen and (min-width: 700px){
-  #registration-box{
+  .LoginForm{
     width: 50%;
   }
 }
