@@ -29,7 +29,7 @@ export default class App extends Component {
             <p>There was an error! Oh no!</p>
           )}
           <Switch>
-            <PrivateRoute
+            <Route
               exact
               path={'/'}
               component={DashboardRoute}

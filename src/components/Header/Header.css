@@ -1,0 +1,39 @@
+header{
+  background: black;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  margin: 0px;
+  padding: 0px;
+}
+
+.main-link{
+  text-decoration:none;
+  color: white;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+
+.header-link{
+  float: right;
+  text-decoration:none;
+  color: white;
+  margin: auto 10px;
+}
+
+.header-link:hover{
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 450px){
+  .main-link{
+    margin-top: 5px;
+    font-size: 22px;
+  }
+
+  .header-link{
+    font-size: 14px;
+  }
+}
