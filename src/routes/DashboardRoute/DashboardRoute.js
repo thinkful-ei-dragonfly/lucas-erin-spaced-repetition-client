@@ -22,24 +22,23 @@ class DashboardRoute extends Component {
       }
     };
 
-    return fetch(config.API_ENDPOINT + '/language?language=Italian', myOptions)
+    return fetch(`${config.API_ENDPOINT}/language`, myOptions)
     .then(res => (!res.ok)
     ? res.json().then(e => Promise.reject(e))
     : res.json()
     )
     .then(res=> {
-      let scores = [];
-      res.words.map(word => {
-        scores.push(word.correct_count)
-      })
-      function sum(total, num) {
-        return total + num;
-      };
-      let total = scores.reduce(sum)
+      // let scores = [];
+      // res.words.map(word => {
+      //   scores.push(word.correct_count)
+      // })
+      // function sum(total, num) {
+      //   return total + num;
+      // };
+      // let total = scores.reduce(sum)
       this.setState({
-        language: res.language.name,
-        words: res.words,
-        totalScore: total
+        language: res.language,
+        words: res.words
       })
     })
   }
@@ -52,15 +51,15 @@ class DashboardRoute extends Component {
 
     return (
       <section className="dashboard">
-        <h2 className="language-header">Italian</h2>
+        <h2 className="language-header">{this.state.language.name}</h2>
         <div className="bar">
           <p className="score">
-            Total Score: {this.state.totalScore}
+          Total correct answers: {this.state.language.total_score}
           </p>
-        <button className="start" onClick={() => this.history.props.push('/learn')}>Start Practicing</button>
+        <button className="start"><a href="/learn">Start practicing</a></button>
         </div>
         <div className="practice-words">
-        <h3 className="words-header">Words to Practice</h3>
+        <h3 className="words-header">Words to practice</h3>
           <ul>
             {mappedWords}
           </ul>
