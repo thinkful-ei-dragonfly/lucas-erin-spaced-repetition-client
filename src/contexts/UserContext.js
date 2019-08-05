@@ -6,6 +6,8 @@ import IdleService from '../services/idle-service'
 const UserContext = React.createContext({
   user: {},
   error: null,
+  language: null,
+  words: null,
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
