@@ -4,7 +4,6 @@ import { Input, Required, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import Button from '../Button/Button'
 import ArrowRight from '../App/arrow-forward.svg'
-// import './RegistrationForm.css'
 
 class RegistrationForm extends Component {
   static defaultProps = {

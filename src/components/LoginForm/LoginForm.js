@@ -3,7 +3,7 @@ import { Input, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../contexts/UserContext'
 import Button from '../Button/Button'
-// import './LoginForm.css'
+import ArrowRight from '../App/arrow-forward.svg'
 
 class LoginForm extends Component {
   static defaultProps = {
@@ -52,6 +52,7 @@ class LoginForm extends Component {
           {error && <p>{error}</p>}
         </div>
         <div className='input-row'>
+          <img src={ArrowRight} alt='ArrowRight'/>
           <Label htmlFor='login-username-input'>
             Username
           </Label>
@@ -63,6 +64,7 @@ class LoginForm extends Component {
           />
         </div>
         <div className='input-row'>
+          <img src={ArrowRight} alt='ArrowRight'/>
           <Label htmlFor='login-password-input'>
             Password
           </Label>

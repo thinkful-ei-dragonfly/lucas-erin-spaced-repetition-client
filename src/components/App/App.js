@@ -20,7 +20,6 @@ export default class App extends Component {
 
   render() {
     const { hasError } = this.state
-    // line 37 should be private
     return (
       <div className='App'>
         <Header />

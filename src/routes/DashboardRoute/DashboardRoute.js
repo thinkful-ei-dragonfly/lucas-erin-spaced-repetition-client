@@ -2,8 +2,12 @@ import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import config from '../../config'
 import Word from '../../components/Word/Word'
+import UserContext from '../../contexts/UserContext'
+import { Link } from 'react-router-dom'
+// import learningroute
 
 class DashboardRoute extends Component {
+  static contextType = UserContext
 
   state = {
     language: '',
@@ -28,6 +32,7 @@ class DashboardRoute extends Component {
     : res.json()
     )
     .then(res=> {
+
       // let scores = [];
       // res.words.map(word => {
       //   scores.push(word.correct_count)
@@ -36,6 +41,7 @@ class DashboardRoute extends Component {
       //   return total + num;
       // };
       // let total = scores.reduce(sum)
+
       this.setState({
         language: res.language,
         words: res.words
@@ -46,17 +52,33 @@ class DashboardRoute extends Component {
   render() {
     const mappedWords = this.state.words.map((word, index) => {
       return(
-        <li><Word words={this.state.words[index]}/></li>)
+        <li key={word.id}><Word words={this.state.words[index]}  /></li>)
       });
+      const contextValue = {
+        words: this.state.words
+      }
 
     return (
+      <UserContext.Provider
+          value={contextValue}>
+
+
       <section className="dashboard">
         <h2 className="language-header">{this.state.language.name}</h2>
         <div className="bar">
           <p className="score">
           Total correct answers: {this.state.language.total_score}
           </p>
-        <button className="start"><a href="/learn">Start practicing</a></button>
+          <Link
+            to={{
+              pathname: '/learn',
+              state: {
+                word: this.state.words[0]
+              }
+            }}
+            >
+            <button className="start">Start Practicing</button>
+          </Link>
         </div>
         <div className="practice-words">
         <h3 className="words-header">Words to practice</h3>
@@ -65,6 +87,9 @@ class DashboardRoute extends Component {
           </ul>
         </div>
       </section>
+
+    </UserContext.Provider>
+
     );
   }
 }
