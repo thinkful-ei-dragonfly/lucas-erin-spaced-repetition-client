@@ -150,6 +150,99 @@ main {
 
 
   // Dashboard
+  .dashboard{
+    margin: auto;
+    width: 80%;
+    font-family: $serif;
+
+    h2{
+      text-align: center;
+      margin: 15px auto;
+      font-size: 30px;
+      font-family: $sans;
+    }
+
+    .bar{
+      height: 40px;
+      width: 100%;
+      font-family: $sans;
+
+      .score{
+        display: inline-block;
+        font-size: 20px;
+        margin: 7px 15px;
+      }
+
+      .start{
+        float: right;
+        margin: 0;
+        top:0;
+        display: inline-block;
+        border: none;
+        padding: 7px;
+        text-decoration: none;
+        background: rgb(216, 216, 216);  
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        transition: background 250ms ease-in-out, 
+                    transform 150ms ease;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+      .start:hover,
+      .start:focus {
+        background: $green;
+      }
+
+      .start:focus {
+        outline: 1px solid #fff;
+        outline-offset: -4px;
+      }
+      
+      .start:active {
+        transform: scale(0.99);
+      }
+    }
+
+    h3{
+      font-size: 24px;
+      margin: 25px auto;
+      text-align: center;
+      font-family: $sans;
+    }
+
+    ul{
+      text-align: center;
+      margin: 15px auto;
+      display: flex;
+      flex-wrap: wrap;
+      border: 2px solid black;
+      padding: 5px;
+
+      li{
+        list-style: none;
+        flex: 30%;
+        margin: 2%;
+        line-height: 1.75rem;
+
+        .word{
+          background: $green;
+          padding: 5px;
+        }
+
+        h3{
+          font-size: 20px;
+          margin: 5px auto;
+          font-family: $sans;
+        }
+
+        p{
+          font-size: 16px;
+        }
+      }
+    }
+  }
 
 
   // Learning Route

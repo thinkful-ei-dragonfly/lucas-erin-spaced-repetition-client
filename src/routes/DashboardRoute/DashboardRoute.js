@@ -42,9 +42,20 @@ class DashboardRoute extends Component {
     )
     .then(res=> {
       console.log(res.words)
+      let scores = [];
+      res.words.map(word => {
+        scores.push(word.correct_count)
+      })
+      console.log(scores);
+      let total = 0;
+      for(let i=0; i <scores.length; i++){
+        total +=scores[i];
+      }
+      console.log(total)
       this.setState({
         language: res.language.name,
-        words: res.words
+        words: res.words,
+        totalScore: total
       })
     })
   }
