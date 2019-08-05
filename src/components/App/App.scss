@@ -174,8 +174,6 @@ main {
       }
 
       .start{
-        float: right;
-        margin: 0;
         top:0;
         display: inline-block;
         border: none;
@@ -205,9 +203,35 @@ main {
       }
     }
 
+    @media screen and (max-width: 490px) {
+  
+      .bar{
+        height: 100px;
+        text-align: center;
+      }
+      .score{
+        display: inline-block;
+        margin: auto;
+      }
+  
+      .start{
+        float: none;
+        display: inline-block;
+        margin: 15px auto;
+        font-size: 10px;
+      }
+    }
+
+    @media screen and (min-width: 490px) {
+  
+      .start{
+        float: right;
+      }
+    }
+
     h3{
       font-size: 24px;
-      margin: 25px auto;
+      margin: 15px auto;
       text-align: center;
       font-family: $sans;
     }
@@ -241,6 +265,17 @@ main {
           font-size: 16px;
         }
       }
+      @media screen and (max-width: 490px) {
+        li{
+          flex: 100%;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 490px) {
+    .dashboard{
+      width: 90%;
     }
   }
 
