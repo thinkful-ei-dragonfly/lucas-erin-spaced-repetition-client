@@ -18,7 +18,8 @@ class LoginRoute extends Component {
   render() {
     return (
       <section>
-        <h2 className="log-in">Login</h2>
+        <h2 className='tagline'>Benvenuto. Welcome back. </h2>
+        <h3 className="log-in">Login to Apprendere</h3>
         <LoginForm
           onLoginSuccess={this.handleLoginSuccess}
         />

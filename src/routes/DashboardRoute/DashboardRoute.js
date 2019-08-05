@@ -16,7 +16,7 @@ class DashboardRoute extends Component {
   // if the score is correct then update the parent "total score" in Dashboard component
   render() {
 
-    // <li><LearningRoute classname"bold" onSubmit={this.updateScore}>{this.state.words[i].word}</h3>
+    // <li><Link to='/learn' classname"bold" onSubmit={this.updateScore}>{this.state.words[i].word}</h3>
     return (
       <section className="dashboard">
         <h2 className="language-header">Italian</h2>

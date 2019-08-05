@@ -99,17 +99,19 @@ main {
     font-size: 2em;
     font-family: $sans;
     letter-spacing: -.025em;
-    // font-weight: 600;
   }
   .sub-tagline,
-  .sign-up {
+  .sign-up,
+  .log-in {
     padding: 1em 0;
   }
-  .sign-up {
+  .sign-up,
+  .log-in {
     font-weight: 600;
     border-bottom: 1px solid;
   }
-  #registration-box {
+  #registration-box,
+  .LoginForm {
     //
     .input-row {
       img {
