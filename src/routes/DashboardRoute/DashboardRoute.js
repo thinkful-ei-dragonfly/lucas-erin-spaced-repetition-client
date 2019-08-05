@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import TokenService from '../../services/token-service'
+import config from '../../config'
+import Word from '../../components/Word/Word'
 // import './DashboardRoute.css'
 // import learningroute
 
@@ -14,30 +17,58 @@ class DashboardRoute extends Component {
 
   // create updateScore function to pass down to components
   // if the score is correct then update the parent "total score" in Dashboard component
+
+  state = {
+    language: '',
+    words: [],
+    totalScore: 0,
+  }
+
+  componentDidMount(){
+    let accessToken = TokenService.getAuthToken();
+
+    const myOptions = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + accessToken
+      }
+    };
+
+    return fetch(config.API_ENDPOINT + '/language?language=Italian', myOptions)
+    .then(res => (!res.ok)
+    ? res.json().then(e => Promise.reject(e))
+    : res.json()
+    )
+    .then(res=> {
+      console.log(res.words)
+      this.setState({
+        language: res.language.name,
+        words: res.words
+      })
+    })
+  }
+
   render() {
 
-    // <li><LearningRoute classname"bold" onSubmit={this.updateScore}>{this.state.words[i].word}</h3>
+    const mappedWords = this.state.words.map((word, index) => {
+      return(
+        <li><Word words={this.state.words[index]}/></li>)
+      });
+
     return (
       <section className="dashboard">
         <h2 className="language-header">Italian</h2>
         <div className="bar">
           <p className="score">
-            Total Score: 4
+            Total Score: {this.state.totalScore}
           </p>
-        <button className="start">Start Practicing</button>
+        <button className="start" onClick={() => this.history.props.push('/learn')}>Start Practicing</button>
         </div>
         <div className="practice-words">
         <h3 className="words-header">Words to Practice</h3>
           <ul>
-            <li><h3 className="bold">Word 1</h3>  <p className="green">Correct: 1</p>  <p className="red">Incorrect: 2</p></li>
-            <li><h3 className="bold">Word 2</h3>  <p className="green">Correct: 2</p>  <p className="red">Incorrect: 1</p></li>
-            <li><h3 className="bold">Word 3</h3>  <p className="green">Correct: 1</p>  <p className="red">Incorrect: 0</p></li>
-            <li><h3 className="bold">Word 4</h3>  <p className="green">Correct: 2</p>  <p className="red">Incorrect: 1</p></li>
-            <li><h3 className="bold">Word 5</h3>  <p className="green">Correct: 1</p>  <p className="red">Incorrect: 0</p></li>
-            <li><h3 className="bold">Word 6</h3>  <p className="green">Correct: 2</p>  <p className="red">Incorrect: 1</p></li>
-            <li><h3 className="bold">Word 7</h3>  <p className="green">Correct: 1</p>  <p className="red">Incorrect: 0</p></li>
-            <li><h3 className="bold">Word 8</h3>  <p className="green">Correct: 2</p>  <p className="red">Incorrect: 1</p></li>
-            <li><h3 className="bold">Word 9</h3>  <p className="green">Correct: 1</p>  <p className="red">Incorrect: 0</p></li>
+            {mappedWords}
           </ul>
         </div>
       </section>
