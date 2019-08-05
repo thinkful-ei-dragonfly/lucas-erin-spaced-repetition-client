@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import config from '../../config'
 import Word from '../../components/Word/Word'
-// import './DashboardRoute.css'
+import UserContext from '../../contexts/UserContext'
+import { Link } from 'react-router-dom'
 // import learningroute
 
 class DashboardRoute extends Component {
+  static contextType = UserContext
 
   // Add a state
   // totalscore stored in state
@@ -41,7 +43,6 @@ class DashboardRoute extends Component {
     : res.json()
     )
     .then(res=> {
-      console.log(res.words)
       this.setState({
         language: res.language.name,
         words: res.words
@@ -52,17 +53,34 @@ class DashboardRoute extends Component {
   render() {
     const mappedWords = this.state.words.map((word, index) => {
       return(
-        <li><Word words={this.state.words[index]}/></li>)
+        <li key={word.id}><Word words={this.state.words[index]}  /></li>)
       });
+      const contextValue = {
+        words: this.state.words
+      }
 
     return (
+      <UserContext.Provider
+          value={contextValue}>
+
+
       <section className="dashboard">
         <h2 className="language-header">Italian</h2>
         <div className="bar">
           <p className="score">
             Total Score: {this.state.totalScore}
           </p>
-        <button className="start" onClick={() => this.history.props.push('/learn')}>Start Practicing</button>
+          <Link
+            to={{
+              pathname: '/learn',
+              state: {
+                word: this.state.words[0]
+              }
+            }}
+            >
+            <button className="start">Start Practicing</button>
+          </Link>
+
         </div>
         <div className="practice-words">
         <h3 className="words-header">Words to Practice</h3>
@@ -71,6 +89,9 @@ class DashboardRoute extends Component {
           </ul>
         </div>
       </section>
+
+    </UserContext.Provider>
+
     );
   }
 }
