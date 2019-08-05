@@ -61,12 +61,12 @@ li{
   width: 8rem;
   padding: 7.5px;
   text-decoration: none;
-  background: rgb(68, 68, 68);  
+  background: rgb(68, 68, 68);
   color: white;
   font-size: .85rem;
   cursor: pointer;
   text-align: center;
-  transition: background 250ms ease-in-out, 
+  transition: background 250ms ease-in-out,
               transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -128,5 +128,3 @@ li{
     line-height: 12.5px;
   }
 }
-
-

@@ -16,10 +16,11 @@ class RegistrationRoute extends Component {
   render() {
     return (
       <section>
-        <p className="tagline">
-          Practice learning a language with the spaced reptition revision technique.
-        </p>
-        <h2 className="sign-up">Sign up</h2>
+        <h2 className="tagline">
+          Practice learning Italian with the spaced reptition revision technique.
+        </h2>
+        <h3 className='sub-tagline'>Apprendere is a web app that will help you learn Italian in no time. Eccezionale!</h3>
+        <h4 className="sign-up">Sign up</h4>
         <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
         />

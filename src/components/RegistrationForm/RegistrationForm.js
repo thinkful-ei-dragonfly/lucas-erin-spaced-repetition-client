@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { Input, Required, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import Button from '../Button/Button'
-import './RegistrationForm.css'
+import ArrowRight from '../App/arrow-forward.svg'
+// import './RegistrationForm.css'
 
 class RegistrationForm extends Component {
   static defaultProps = {
@@ -46,7 +47,8 @@ class RegistrationForm extends Component {
         <div role='alert'>
           {error && <p>{error}</p>}
         </div>
-        <div>
+        <div className='input-row'>
+          <img src={ArrowRight} alt='ArrowRight'/>
           <Label htmlFor='registration-name-input'>
             Enter your name<Required />
           </Label>
@@ -57,7 +59,8 @@ class RegistrationForm extends Component {
             required
           />
         </div>
-        <div>
+        <div className='input-row'>
+          <img src={ArrowRight} alt='ArrowRight'/>
           <Label htmlFor='registration-username-input'>
             Choose a username<Required />
           </Label>
@@ -67,7 +70,8 @@ class RegistrationForm extends Component {
             required
           />
         </div>
-        <div>
+        <div className='input-row'>
+          <img src={ArrowRight} alt='ArrowRight'/>
           <Label htmlFor='registration-password-input'>
             Choose a password<Required />
           </Label>

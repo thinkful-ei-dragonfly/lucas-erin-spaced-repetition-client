@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+
+// Miscellaneous
+$serif: 'Caslon', 'Times New Roman', serif;
+$sans: 'Karla', 'Helvetica Neue', sans-serif;
+$green: #B6DAB4;
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+hr {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+textarea,
+select,
+button {
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+}
+
+body {
+  font-family: $sans;
+  font-size: 18px;
+}
+
+// Header
+
+header {
+  display: flex;
+  position: sticky;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  top: 0;
+  justify-content: space-between;
+  padding: 10px 25px;
+  border-bottom: 1px solid;
+  font-family: $sans;
+  text-transform: uppercase;
+  letter-spacing: -.025em;
+  align-items: center;
+  background-color: $green;
+  h1 {
+    font-size: 1.5em;
+  }
+  a {
+    text-decoration: none;
+  }
+  .header-link:last-of-type {
+    padding-left: 15px;
+  }
+}
+
+
+// Main
+
+main {
+  padding: 25px;
+
+  // Registration Route
+  .tagline {
+    font-size: 2em;
+    font-family: $sans;
+    letter-spacing: -.025em;
+    // font-weight: 600;
+  }
+  .sub-tagline,
+  .sign-up {
+    padding: 1em 0;
+  }
+  .sign-up {
+    font-weight: 600;
+    border-bottom: 1px solid;
+  }
+  #registration-box {
+    //
+    .input-row {
+      img {
+        vertical-align: middle;
+        padding-right: 15px;
+        max-width: 2.5em;
+        width: 100%;
+      }
+      padding: 10px 0;
+      border-bottom: 1px solid;
+    }
+    label {
+      padding-right: 25px;
+    }
+    input {
+      padding: 10px;
+      border: 1px solid;
+    }
+    button {
+      display: block;
+      background-color: $green;
+      padding: 15px;
+      width: 100%;
+      border: 1px solid;
+      text-transform: uppercase;
+      margin-top: 15px;
+      margin-bottom: 5px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  // Login Page
+
+
+  // Dashboard
+
+
+  // Learning Route
+
+}

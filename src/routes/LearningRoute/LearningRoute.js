@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+// Import word component, and pass in the updateScore function to that component
+// Word component will have the state and render functions from below
+
 export default class LearningRoute extends Component {
   // setting basic class states to show correct or incorrect answers:
   state = {

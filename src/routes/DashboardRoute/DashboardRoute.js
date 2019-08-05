@@ -1,8 +1,22 @@
 import React, { Component } from 'react'
 // import './DashboardRoute.css'
+// import learningroute
 
 class DashboardRoute extends Component {
+
+  // Add a state
+  // totalscore stored in state
+  // pass in function to update total score to each component
+
+  // componentDidMount()
+  // fetch all words
+  // pass in words to each learningRoute component as a prop
+
+  // create updateScore function to pass down to components
+  // if the score is correct then update the parent "total score" in Dashboard component
   render() {
+
+    // <li><LearningRoute classname"bold" onSubmit={this.updateScore}>{this.state.words[i].word}</h3>
     return (
       <section className="dashboard">
         <h2 className="language-header">Italian</h2>
