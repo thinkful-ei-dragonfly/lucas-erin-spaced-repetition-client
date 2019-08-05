@@ -2,21 +2,8 @@ import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import config from '../../config'
 import Word from '../../components/Word/Word'
-// import './DashboardRoute.css'
-// import learningroute
 
 class DashboardRoute extends Component {
-
-  // Add a state
-  // totalscore stored in state
-  // pass in function to update total score to each component
-
-  // componentDidMount()
-  // fetch all words
-  // pass in words to each learningRoute component as a prop
-
-  // create updateScore function to pass down to components
-  // if the score is correct then update the parent "total score" in Dashboard component
 
   state = {
     language: '',
@@ -41,17 +28,14 @@ class DashboardRoute extends Component {
     : res.json()
     )
     .then(res=> {
-      console.log(res.words)
       let scores = [];
       res.words.map(word => {
         scores.push(word.correct_count)
       })
-      console.log(scores);
-      let total = 0;
-      for(let i=0; i <scores.length; i++){
-        total +=scores[i];
-      }
-      console.log(total)
+      function sum(total, num) {
+        return total + num;
+      };
+      let total = scores.reduce(sum)
       this.setState({
         language: res.language.name,
         words: res.words,
