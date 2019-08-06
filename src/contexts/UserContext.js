@@ -10,21 +10,19 @@ const UserContext = React.createContext({
   words: [],
   total_score: null,
   currentWord: {
-    nextWord: "Testnextword",
-    wordCorrectCount: 222,
-    wordIncorrectCount: 333,
-    totalScore: 999
+    nextWord: null,
+    wordCorrectCount: null,
+    wordIncorrectCount: null,
+    totalScore: null
   },
-  guess: {
-    userGuess: null,
-    response: {
-    nextWord: "test-next-word-from-incorrect-guess",
-    wordCorrectCount: 888,
-    wordIncorrectCount: 111,
-    totalScore: 999,
-    answer: "test-answer-from-incorrect-guess",
-    isCorrect: false
-    }
+  userGuess: null,
+  guessRes: {
+    nextWord: null,
+    wordCorrectCount: null,
+    wordIncorrectCount: null,
+    totalScore: null,
+    answer: null,
+    isCorrect: null
   },
   setError: () => {},
   clearError: () => {},
@@ -50,22 +48,20 @@ export class UserProvider extends Component {
       language: null,
       total_score: 0,
       currentWord: {
-        nextWord: "Italian word",
-        wordCorrectCount: 222,
-        wordIncorrectCount: 333,
-        totalScore: 999
+        nextWord: null,
+        wordCorrectCount: null,
+        wordIncorrectCount: null,
+        totalScore: null
       },
-      guess: {
-        userGuess: null,
-        response: {
-        nextWord: "Italian word",
-        wordCorrectCount: 888,
-        wordIncorrectCount: 111,
-        totalScore: 999,
-        answer: "ANSWER",
-        isCorrect: true
+      userGuess: null,
+      guessRes: {
+        nextWord: null,
+        wordCorrectCount: null,
+        wordIncorrectCount: null,
+        totalScore: null,
+        answer: null,
+        isCorrect: null
       }
-    }
     }
 
     const jwtPayload = TokenService.parseAuthToken()
@@ -120,8 +116,12 @@ export class UserProvider extends Component {
     this.setState({ currentWord })
   }
 
-  setGuess = guess => {
-    this.setState({ guess })
+  setGuess = userGuess => {
+    this.setState({ userGuess })
+  }
+
+  setGuessRes = guessRes => {
+    this.setState({ guessRes })
   }
 
   setScore = total_score => {
@@ -174,8 +174,9 @@ export class UserProvider extends Component {
       user: this.state.user,
       language: this.state.language,
       words: this.state.words,
-      currentWord:this.state.currentWord,
-      guess: this.state.guess,
+      currentWord: this.state.currentWord,
+      userGuess: this.state.userGuess,
+      guessRes: this.state.guessRes,
       total_score: this.state.total_score,
       error: this.state.error,
       setError: this.setError,
@@ -185,6 +186,7 @@ export class UserProvider extends Component {
       setWords: this.setWords,
       setCurrentWord: this.setCurrentWord,
       setGuess: this.setGuess,
+      setGuessRes: this.setGuessRes,
       setScore: this.setScore,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
