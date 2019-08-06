@@ -4,49 +4,43 @@ import UserContext from '../../contexts/UserContext'
 export default class WordPage extends Component {
   static contextType = UserContext
   
-  handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(`Hi, you've submitted an answer`);
-  }
+  // handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   console.log(`Submitted ${e.target.learn.value}`);
+  // }
 
   componentDidMount() {
-
     //api request to /language/head
     // .then(res => this.context.setCurrentWord({}))
-  
   }
 
   render() {
-   
-    // let subtitle = (`Translate the word: <span className='word'>${this.state.word}</span>`)
-    // let correctAnswers = (`You have answered this question correctly ${this.state.word} times`)
-    // let incorrectAnswers = (`You have answered this question incorrectly ${this.state.word} times`)
-    // let totalScore = (`Your total score is: ${this.state.word}`)
-    // let alertMessage = ''
-    // let buttonText = 'Submit your answer'
 
     return (
       <section className='LearningRoute'>
-        {/* <h2>{subtitle}</h2>
-        {alertMessage}
-        <div className='form-section'>
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor='word'>What's the translation of this word?</label>
-            <input type='text' name='word' id='word' placeholder='type the word here'></input>
-            <button>{buttonText}</button>
-          </form>
+        <p className="banner">Your total score is: {this.context.currentWord.totalScore}</p>
+        <h2>Translate the word:</h2>
+        <h3><span className="bold word">{this.context.currentWord.nextWord}</span></h3>
+      
+        <div className="container">
+        <form id="learn-guess-form" onSubmit={(e) => {
+          e.preventDefault();
+          console.log(`Submitted ${e.target.learn.value}`)
+          }}>
+          <label htmlFor="learn-guess-input">What's the translation for this word?</label>
+          <input type="text" 
+          id="learn-guess-input" 
+          name="learn" 
+          placeholder="Your guess here" 
+          aria-label="Word guess entry"
+          aria-required="true"
+          required></input>
+          <button type="submit">Submit your answer</button>
+        </form>
         </div>
-        <div className='results'>
-          <div className='correct'>
-            <p>{correctAnswers}</p>
-          </div>
-          <div className='incorrect'>
-            <p>{incorrectAnswers}</p>
-          </div>
-          <div className='total'>
-            <p>{totalScore}</p>
-          </div>
-        </div> */}
+
+        <p className="count">You have answered this word correctly <span className="bold green">{this.context.currentWord.wordCorrectCount}</span> times.</p>
+        <p className="count">You have answered this word incorrectly <span className="bold red">{this.context.currentWord.wordIncorrectCount}</span> times.</p>
       </section>
     );
   }

@@ -6,14 +6,14 @@ import IdleService from '../services/idle-service'
 const UserContext = React.createContext({
   user: {},
   error: null,
-  language: null,
+  language: 'hello',
   words: [],
   total_score: null,
   currentWord: {
-    "nextWord": "Testnextword",
-    "wordCorrectCount": 222,
-    "wordIncorrectCount": 333,
-    "totalScore": 999
+    nextWord: "Testnextword",
+    wordCorrectCount: 222,
+    wordIncorrectCount: 333,
+    totalScore: 999
   },
   setCurrentWord: () => {},
   setError: () => {},
@@ -38,10 +38,10 @@ export class UserProvider extends Component {
       language: null,
       total_score: 0,
       currentWord: {
-        "nextWord": "Testnextword",
-        "wordCorrectCount": 222,
-        "wordIncorrectCount": 333,
-        "totalScore": 999
+        nextWord: "Testnextword",
+        wordCorrectCount: 222,
+        wordIncorrectCount: 333,
+        totalScore: 999
       }
     }
 
@@ -145,6 +145,7 @@ export class UserProvider extends Component {
       user: this.state.user,
       language: this.state.language,
       words: this.state.words,
+      currentWord:this.state.currentWord,
       total_score: this.state.total_score,
       error: this.state.error,
       setError: this.setError,
