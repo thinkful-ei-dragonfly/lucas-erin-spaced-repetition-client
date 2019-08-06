@@ -152,7 +152,7 @@ main {
   // Dashboard
   .dashboard{
     margin: auto;
-    width: 80%;
+    width: 95%;
     font-family: $serif;
 
     h2{
@@ -170,7 +170,7 @@ main {
       .score{
         display: inline-block;
         font-size: 20px;
-        margin: 7px 15px;
+        margin: 7px 0px;
       }
 
       .start{
@@ -212,6 +212,10 @@ main {
       .score{
         display: inline-block;
         margin: auto;
+
+        p{
+          color: pink;
+        }
       }
   
       .start{
@@ -250,9 +254,13 @@ main {
         margin: 2%;
         line-height: 1.75rem;
 
-        .word{
+        .word-list-item{
           background: $green;
           padding: 5px;
+
+          h4{
+            font-weight: bold;
+          }
         }
 
         h3{
@@ -275,7 +283,13 @@ main {
 
   @media screen and (max-width: 490px) {
     .dashboard{
-      width: 90%;
+      width: 95%;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .dashboard{
+      width: 75%;
     }
   }
 
