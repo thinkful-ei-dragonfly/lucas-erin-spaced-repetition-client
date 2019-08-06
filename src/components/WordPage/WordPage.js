@@ -3,47 +3,31 @@ import UserContext from '../../contexts/UserContext'
 
 export default class WordPage extends Component {
   static contextType = UserContext
-  state = {
-    word: null,
-    guess: null,
-  }
+  
   handleSubmit = (e) => {
     e.preventDefault()
     console.log(`Hi, you've submitted an answer`);
   }
 
   componentDidMount() {
-    if (this.props.word) {
-      debugger;
-      let currentWord = this.props.word
-      this.setState({
-        word: currentWord
-      })
-    }
+
+    //api request to /language/head
+    // .then(res => this.context.setCurrentWord({}))
+  
   }
 
-  componentDidUpdate() {
-    if (this.state.word !== this.props.word) {
-      let currentWord = this.props.word
-      this.setState({
-        word: currentWord
-      })
-    }
-
-  }
   render() {
-    // need to figure out how to properly get the values from the state
-    // the state doesn't appear immediately, so maybe from props?
-    let subtitle = (`Translate the word: <span className='word'>${this.state.word}</span>`)
-    let correctAnswers = (`You have answered this question correctly ${this.state.word} times`)
-    let incorrectAnswers = (`You have answered this question incorrectly ${this.state.word} times`)
-    let totalScore = (`Your total score is: ${this.state.word}`)
-    let alertMessage = ''
-    let buttonText = 'Submit your answer'
+   
+    // let subtitle = (`Translate the word: <span className='word'>${this.state.word}</span>`)
+    // let correctAnswers = (`You have answered this question correctly ${this.state.word} times`)
+    // let incorrectAnswers = (`You have answered this question incorrectly ${this.state.word} times`)
+    // let totalScore = (`Your total score is: ${this.state.word}`)
+    // let alertMessage = ''
+    // let buttonText = 'Submit your answer'
 
     return (
       <section className='LearningRoute'>
-        <h2>{subtitle}</h2>
+        {/* <h2>{subtitle}</h2>
         {alertMessage}
         <div className='form-section'>
           <form onSubmit={this.handleSubmit}>
@@ -62,7 +46,7 @@ export default class WordPage extends Component {
           <div className='total'>
             <p>{totalScore}</p>
           </div>
-        </div>
+        </div> */}
       </section>
     );
   }

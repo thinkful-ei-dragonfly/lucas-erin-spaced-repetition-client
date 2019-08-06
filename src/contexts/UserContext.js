@@ -9,6 +9,13 @@ const UserContext = React.createContext({
   language: null,
   words: [],
   total_score: null,
+  currentWord: {
+    "nextWord": "Testnextword",
+    "wordCorrectCount": 222,
+    "wordIncorrectCount": 333,
+    "totalScore": 999
+  },
+  setCurrentWord: () => {},
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
@@ -29,7 +36,13 @@ export class UserProvider extends Component {
       error: null,
       words: [],
       language: null,
-      total_score: 0
+      total_score: 0,
+      currentWord: {
+        "nextWord": "Testnextword",
+        "wordCorrectCount": 222,
+        "wordIncorrectCount": 333,
+        "totalScore": 999
+      }
     }
 
     const jwtPayload = TokenService.parseAuthToken()
@@ -77,6 +90,11 @@ export class UserProvider extends Component {
   setWords = words => {
     this.setState({ words })
   }
+
+  setCurrentWord = currentWord => {
+    this.setState({ currentWord })
+  }
+
   setScore = total_score => {
     this.setState({ total_score })
   }
@@ -134,6 +152,7 @@ export class UserProvider extends Component {
       setUser: this.setUser,
       setLanguage: this.setLanguage,
       setWords: this.setWords,
+      setCurrentWord: this.setCurrentWord,
       setScore: this.setScore,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
