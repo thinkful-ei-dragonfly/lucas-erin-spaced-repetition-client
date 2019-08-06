@@ -26,7 +26,7 @@ class DashboardRoute extends Component {
     )
     .then(res=> {
       this.context.setWords(res.words)
-      // this.context.setLanguage(res.language.name)
+      this.context.setLanguage(res.language.name)
       this.context.setScore(res.language.total_score)
     })
   }

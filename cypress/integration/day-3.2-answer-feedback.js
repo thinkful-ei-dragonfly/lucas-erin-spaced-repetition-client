@@ -2,7 +2,7 @@
 
 /**
  * @abstract:Feedback to my answer
- *
+ * 
  * @criteria
   After submitting an answer on the learning page as a logged in user:
   - The app POSTs my answer for this word to the server

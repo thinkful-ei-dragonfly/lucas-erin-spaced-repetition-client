@@ -6,7 +6,7 @@ import IdleService from '../services/idle-service'
 const UserContext = React.createContext({
   user: {},
   error: null,
-  language: 'hello',
+  language: null,
   words: [],
   total_score: null,
   currentWord: {
@@ -15,7 +15,17 @@ const UserContext = React.createContext({
     wordIncorrectCount: 333,
     totalScore: 999
   },
-  setCurrentWord: () => {},
+  guess: {
+    userGuess: null,
+    response: {
+    nextWord: "test-next-word-from-incorrect-guess",
+    wordCorrectCount: 888,
+    wordIncorrectCount: 111,
+    totalScore: 999,
+    answer: "test-answer-from-incorrect-guess",
+    isCorrect: false
+    }
+  },
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
@@ -23,6 +33,8 @@ const UserContext = React.createContext({
   processLogout: () => {},
   setLanguage: () => {},
   setWords: () => {},
+  setCurrentWord: () => {},
+  setGuess: () => {},
   setScore: () => {}
 })
 
@@ -38,11 +50,22 @@ export class UserProvider extends Component {
       language: null,
       total_score: 0,
       currentWord: {
-        nextWord: "Testnextword",
+        nextWord: "Italian word",
         wordCorrectCount: 222,
         wordIncorrectCount: 333,
         totalScore: 999
+      },
+      guess: {
+        userGuess: null,
+        response: {
+        nextWord: "Italian word",
+        wordCorrectCount: 888,
+        wordIncorrectCount: 111,
+        totalScore: 999,
+        answer: "ANSWER",
+        isCorrect: true
       }
+    }
     }
 
     const jwtPayload = TokenService.parseAuthToken()
@@ -84,15 +107,21 @@ export class UserProvider extends Component {
   setUser = user => {
     this.setState({ user })
   }
+
   setLanguage = language => {
     this.setState({ language })
   }
+
   setWords = words => {
     this.setState({ words })
   }
 
   setCurrentWord = currentWord => {
     this.setState({ currentWord })
+  }
+
+  setGuess = guess => {
+    this.setState({ guess })
   }
 
   setScore = total_score => {
@@ -146,6 +175,7 @@ export class UserProvider extends Component {
       language: this.state.language,
       words: this.state.words,
       currentWord:this.state.currentWord,
+      guess: this.state.guess,
       total_score: this.state.total_score,
       error: this.state.error,
       setError: this.setError,
@@ -154,6 +184,7 @@ export class UserProvider extends Component {
       setLanguage: this.setLanguage,
       setWords: this.setWords,
       setCurrentWord: this.setCurrentWord,
+      setGuess: this.setGuess,
       setScore: this.setScore,
       processLogin: this.processLogin,
       processLogout: this.processLogout,

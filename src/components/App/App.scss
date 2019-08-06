@@ -217,13 +217,10 @@ main {
         height: 100px;
         text-align: center;
       }
+
       .score{
         display: inline-block;
         margin: auto;
-
-        p{
-          color: pink;
-        }
       }
   
       .start{
@@ -309,11 +306,13 @@ main {
     border: 1px black solid;
     text-align: center;
     margin: auto;
-    position: relative;
 
     .count{
-      width: 80%;
-      margin: 15px auto;
+      flex: 30%;
+      // background: lightgrey;
+      border: 1px black solid;
+      margin: 15px 4%;
+      padding: 5px;
     }
 
     .bold{
@@ -329,15 +328,63 @@ main {
       margin-top: 50px;
     }
 
-    .banner{
-      width: 100%;
-      background: lightgrey;
-      height: 35px;
-      position: absolute;
-      padding-top: 5px;
-      margin: 0px;
-      border-bottom: 1px solid black;
-      top: 0;
+    .flexbox{
+      display: flex;
+    }
+
+    .DisplayScore{
+
+      h2{
+        margin: 25px auto;
+      }
+
+      p {
+        width: 100%;
+        background: lightgrey;
+        height: 35px;
+        padding-top: 5px;
+        margin: 0px;
+        border-bottom: 1px solid black;
+        top: 0;
+      }
+
+    }
+
+    .DisplayFeedback{
+      margin: 25px auto;
+
+      p{
+        margin: 25px auto;
+      }
+
+      button{
+        top:0;
+        display: inline-block;
+        border: none;
+        padding: 7px;
+        text-decoration: none;
+        background: $green;  
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        transition: background 250ms ease-in-out, 
+                    transform 150ms ease;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+      button:hover,
+      button:focus {
+        background: rgb(216, 216, 216);
+      }
+
+      button:focus {
+        outline: 1px solid #fff;
+        outline-offset: -4px;
+      }
+      
+      button:active {
+        transform: scale(0.99);
+      }
     }
 
     .container{
@@ -349,6 +396,7 @@ main {
       background: $green;
       padding: 20px 10px;
       margin: 25px auto;
+      border: solid black 1px;
 
       button{
         top:0;
