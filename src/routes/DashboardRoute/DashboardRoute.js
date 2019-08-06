@@ -4,16 +4,9 @@ import config from '../../config'
 import Word from '../../components/Word/Word'
 import UserContext from '../../contexts/UserContext'
 import { Link } from 'react-router-dom'
-// import learningroute
 
 class DashboardRoute extends Component {
   static contextType = UserContext
-
-  state = {
-    language: '',
-    words: [],
-    totalScore: 0,
-  }
 
   componentDidMount(){
     let accessToken = TokenService.getAuthToken();
@@ -32,52 +25,29 @@ class DashboardRoute extends Component {
     : res.json()
     )
     .then(res=> {
-
-      // let scores = [];
-      // res.words.map(word => {
-      //   scores.push(word.correct_count)
-      // })
-      // function sum(total, num) {
-      //   return total + num;
-      // };
-      // let total = scores.reduce(sum)
-
-      this.setState({
-        language: res.language,
-        words: res.words
-      })
+      this.context.setWords(res.words)
+      this.context.setLanguage(res.language.name)
+      this.context.setScore(res.language.total_score)
     })
   }
 
   render() {
-    const mappedWords = this.state.words.map((word, index) => {
+    const mappedWords = this.context.words.map((word, index) => {
       return(
-        <li key={word.id}><Word words={this.state.words[index]}  /></li>)
+        <li key={word.id}><Word word={word}/></li>)
       });
-      const contextValue = {
-        words: this.state.words
-      }
 
     return (
-      <UserContext.Provider
-          value={contextValue}>
-
-
       <section className="dashboard">
-        <h2 className="language-header">{this.state.language.name}</h2>
+        <h2 className="language-header">{this.context.language}</h2>
         <div className="bar">
           <p className="score">
-          Total correct answers: {this.state.language.total_score}
+          Total correct answers: {this.context.total_score}
           </p>
           <Link
-            to={{
-              pathname: '/learn',
-              state: {
-                word: this.state.words[0]
-              }
-            }}
+            to='/learn'
             >
-            <button className="start">Start Practicing</button>
+            <button className="start">Start practicing</button>
           </Link>
         </div>
         <div className="practice-words">
@@ -88,7 +58,6 @@ class DashboardRoute extends Component {
         </div>
       </section>
 
-    </UserContext.Provider>
 
     );
   }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import UserContext from '../../contexts/UserContext'
 
 export default class WordPage extends Component {
+  static contextType = UserContext
   state = {
     word: null,
     guess: null,
