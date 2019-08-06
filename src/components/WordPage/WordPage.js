@@ -23,7 +23,6 @@ export default class WordPage extends Component {
     : res.json()
     )
     .then(res=> {
-      console.log(res);
       this.context.setCurrentWord(res)
     })
   }
@@ -37,13 +36,15 @@ export default class WordPage extends Component {
         "wordIncorrectCount": 111,
         "totalScore": 999,
         "answer": "right answer",
-        "isCorrect": true
+        "isCorrect": false
       }
       this.context.setGuess(userGuess)
       this.context.setGuessRes(resExample)
 
     let accessToken = TokenService.getAuthToken();
-    let guessBody = JSON.stringify(userGuess);
+
+    let guessBody = JSON.stringify({guess: userGuess})
+    console.log(guessBody)
 
     const myOptions = {
       method: 'POST',
@@ -54,20 +55,17 @@ export default class WordPage extends Component {
       body: guessBody
     };
 
-    // return fetch(`${config.API_ENDPOINT}/language/guess`, myOptions)
-    // .then(res => (!res.ok)
-    // ? res.json().then(e => Promise.reject(e))
-    // : res.json()
-    // )
-    // .then(res=> {
-    //   console.log(res);
-    //   this.context.setGuess({
-    //     guess: {
-    //       userGuess,
-    //       response: res
-    //     }
-    //   })
-    // })
+    return fetch(`${config.API_ENDPOINT}/language/guess`, myOptions)
+    .then(res => (!res.ok)
+    ? res.json().then(e => Promise.reject(e))
+    : res.json()
+    )
+    .then(res=> {
+      console.log(res);
+      // this.context.setGuess({
+      //   }
+      // })
+    })
   }
 
   render() {
