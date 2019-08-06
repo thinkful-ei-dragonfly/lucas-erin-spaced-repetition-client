@@ -31,16 +31,16 @@ export default class WordPage extends Component {
   handleSubmit(userGuess) {
     //api POST request to language/guess
     // update context with res
-      let res = {
-        "nextWord": "test-next-word-from-incorrect-guess",
+      let resExample = {
+        "nextWord": "italian word",
         "wordCorrectCount": 888,
         "wordIncorrectCount": 111,
         "totalScore": 999,
-        "answer": "test-answer-from-incorrect-guess",
-        "isCorrect": false
+        "answer": "right answer",
+        "isCorrect": true
       }
       this.context.setGuess(userGuess)
-      this.context.setGuessRes(res)
+      this.context.setGuessRes(resExample)
 
     let accessToken = TokenService.getAuthToken();
     let guessBody = JSON.stringify(userGuess);
@@ -87,7 +87,7 @@ export default class WordPage extends Component {
             </div>
             
             <h2>Translate the word:</h2>
-            <h3><span className="bold word">{this.context.currentWord.nextWord}</span></h3>
+            <span className="bold word"><h3>{this.context.currentWord.nextWord}</h3></span>
           
             <div className="flexbox">
               <p className="count">You have answered this word correctly <span className="bold green">{this.context.currentWord.wordCorrectCount}</span> times.</p>
@@ -121,7 +121,7 @@ export default class WordPage extends Component {
           {response}
         </div>
         <div className="DisplayFeedback">
-          <p>The correct translation for {this.context.guessRes.nextWord} was {this.context.guessRes.answer} and you chose {this.context.userGuess}!</p>
+          <p>The correct translation for <span className="bold">{this.context.guessRes.nextWord}</span> was <span className="bold">{this.context.guessRes.answer}</span> and you chose {this.context.userGuess}!</p>
           <button type="submit">Try another word!</button>
         </div>
       </div>
