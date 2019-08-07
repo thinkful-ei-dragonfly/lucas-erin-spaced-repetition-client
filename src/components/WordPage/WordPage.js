@@ -44,7 +44,7 @@ export default class WordPage extends Component {
     let accessToken = TokenService.getAuthToken();
 
     let guessBody = JSON.stringify({guess: userGuess})
-    console.log(guessBody)
+    // console.log(guessBody)
 
     const myOptions = {
       method: 'POST',
@@ -61,7 +61,10 @@ export default class WordPage extends Component {
     : res.json()
     )
     .then(res=> {
+      // we get back the linkedlist with a head
+      // the head has a value and a next property
       console.log(res);
+      debugger;
       // this.context.setGuess({
       //   }
       // })
@@ -72,21 +75,21 @@ export default class WordPage extends Component {
     let body;
     let response;
 
-    (this.context.guessRes.isCorrect === false) 
+    (this.context.guessRes.isCorrect === false)
       ? response = <h2>Good try, but not quite right :(</h2>
       : response = <h2>You were correct! :D</h2>
 
     if(!this.context.userGuess){
       // return learningRoute form with question
-      body = 
+      body =
         <div className="word-page-body">
             <div className="DisplayScore">
               <p>Your total score is: {this.context.currentWord.totalScore}</p>
             </div>
-            
+
             <h2>Translate the word:</h2>
             <span className="bold word"><h3>{this.context.currentWord.nextWord}</h3></span>
-          
+
             <div className="flexbox">
               <p className="count">You have answered this word correctly <span className="bold green">{this.context.currentWord.wordCorrectCount}</span> times.</p>
               <p className="count">You have answered this word incorrectly <span className="bold red">{this.context.currentWord.wordIncorrectCount}</span> times.</p>
@@ -95,14 +98,13 @@ export default class WordPage extends Component {
             <div className="container">
             <form id="learn-guess-form" onSubmit={(e) => {
               e.preventDefault();
-              console.log(`Submitted ${e.target.learn.value}`)
               this.handleSubmit(e.target.learn.value)
               }}>
               <label htmlFor="learn-guess-input">What's the translation for this word?</label>
-              <input type="text" 
-              id="learn-guess-input" 
-              name="learn" 
-              placeholder="Your guess here" 
+              <input type="text"
+              id="learn-guess-input"
+              name="learn"
+              placeholder="Your guess here"
               aria-label="Word guess entry"
               aria-required="true"
               required></input>
@@ -112,7 +114,7 @@ export default class WordPage extends Component {
           </div>
     } else {
       // return body for incorrectGuess & next word button
-      body = 
+      body =
       <div className="word-page-body">
         <div className="DisplayScore">
           <p>Your total score is: {this.context.guessRes.totalScore}</p>
@@ -123,7 +125,7 @@ export default class WordPage extends Component {
           <button type="submit">Try another word!</button>
         </div>
       </div>
-    } 
+    }
 
     return (
       <section className='LearningRoute'>
