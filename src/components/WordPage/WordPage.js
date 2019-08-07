@@ -43,23 +43,10 @@ export default class WordPage extends Component {
   }
 
   handleSubmit(userGuess) {
-    //api POST request to language/guess
-    // update context with res
-      // let resExample = {
-      //   "nextWord": "italian word",
-      //   "wordCorrectCount": 888,
-      //   "wordIncorrectCount": 111,
-      //   "totalScore": 999,
-      //   "answer": "right answer",
-      //   "isCorrect": false
-      // }
-      this.context.setGuess(userGuess)
-      // this.context.setGuessRes(resExample)
-
+    this.context.setGuess(userGuess)
     let accessToken = TokenService.getAuthToken();
-
     let guessBody = JSON.stringify({guess: userGuess})
-    // console.log(guessBody)
+    console.log(guessBody)
 
     const myOptions = {
       method: 'POST',
@@ -72,9 +59,9 @@ export default class WordPage extends Component {
 
     return fetch(`${config.API_ENDPOINT}/language/guess`, myOptions)
     .then(res => (!res.ok)
-    ? res.json().then(e => Promise.reject(e))
-    : res.json()
-    )
+      ? res.json().then(e => Promise.reject(e))
+      : res.json()
+      )
     .then(res=> {
       // we get back the linkedlist with a head
       // the head has a value and a next property
@@ -86,7 +73,6 @@ export default class WordPage extends Component {
       this.context.setWordCorrectCount(res.wordCorrectCount)
       this.context.setWordIncorrectCount(res.wordIncorrectCount)
       this.context.setTotalScore(res.totalScore)
-      
     })
   }
 
