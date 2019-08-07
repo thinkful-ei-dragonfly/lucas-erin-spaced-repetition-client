@@ -8,22 +8,22 @@ const UserContext = React.createContext({
   error: null,
   language: null,
   words: [],
-  total_score: null,
-  currentWord: {
-    nextWord: null,
-    wordCorrectCount: null,
-    wordIncorrectCount: null,
-    totalScore: null
-  },
-  userGuess: null,
-  guessRes: {
-    nextWord: null,
-    wordCorrectCount: null,
-    wordIncorrectCount: null,
-    totalScore: null,
-    answer: null,
-    isCorrect: null
-  },
+  // total_score: null,
+  // currentWord: {
+  //   nextWord: null,
+  //   wordCorrectCount: null,
+  //   wordIncorrectCount: null,
+  //   totalScore: null
+  // },
+  // userGuess: null,
+  // guessRes: {
+  //   nextWord: null,
+  //   wordCorrectCount: null,
+  //   wordIncorrectCount: null,
+  //   totalScore: null,
+  //   answer: null,
+  //   isCorrect: null
+  // },
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
@@ -46,22 +46,22 @@ export class UserProvider extends Component {
       error: null,
       words: [],
       language: null,
-      total_score: 0,
-      currentWord: {
-        nextWord: null,
-        wordCorrectCount: null,
-        wordIncorrectCount: null,
-        totalScore: null
-      },
-      userGuess: null,
-      guessRes: {
-        nextWord: null,
-        wordCorrectCount: null,
-        wordIncorrectCount: null,
-        totalScore: null,
-        answer: null,
-        isCorrect: null
-      }
+      // total_score: 0,
+      // currentWord: {
+      //   nextWord: null,
+      //   wordCorrectCount: null,
+      //   wordIncorrectCount: null,
+      //   totalScore: null
+      // },
+      // userGuess: null,
+      // guessRes: {
+      //   nextWord: null,
+      //   wordCorrectCount: null,
+      //   wordIncorrectCount: null,
+      //   totalScore: null,
+      //   answer: null,
+      //   isCorrect: null
+      // }
     }
 
     const jwtPayload = TokenService.parseAuthToken()
