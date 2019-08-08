@@ -56,6 +56,7 @@ class RegistrationForm extends Component {
               ref={this.firstInput}
               id='registration-name-input'
               name='name'
+              tabIndex='0'
               required
             />
         </fieldset>
@@ -70,6 +71,7 @@ class RegistrationForm extends Component {
             <Input
               id='registration-username-input'
               name='username'
+              tabIndex='0'
               required
             />
         </fieldset>
@@ -84,6 +86,7 @@ class RegistrationForm extends Component {
               id='registration-password-input'
               name='password'
               type='password'
+              tabIndex='0'
               required
             />
         </fieldset>

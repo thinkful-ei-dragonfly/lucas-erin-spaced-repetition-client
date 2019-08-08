@@ -89,44 +89,48 @@ export default class WordPage extends Component {
     if(!this.context.answer){
       // return learningRoute form with question
       body =
-        <article className="word-page-body">
-            <section className="DisplayScore">
+        <article className="word-page-body" aria-controls="learningRoute-aria">
+
+            <header className="DisplayScore">
               <p>Your total score is: {this.context.totalScore}</p>
-            </section>
+            </header>
+
 
             <h2>Translate the word:</h2>
             <span className="bold word"><h3>{this.context.nextWord}</h3></span>
 
-            <section className="flexbox">
+            <section className="flexbox answers-count">
               <p className="count">You have answered this word correctly <span className="bold green">{this.context.wordCorrectCount}</span> times.</p>
               <p className="count">You have answered this word incorrectly <span className="bold red">{this.context.wordIncorrectCount}</span> times.</p>
             </section>
 
             <div className="container">
-            <form id="learn-guess-form" onSubmit={(e) => {
-              e.preventDefault();
-              this.handleSubmit(e.target.learn.value)
-              }}>
-              <label htmlFor="learn-guess-input">What's the translation for this word?</label>
-              <input type="text"
-              id="learn-guess-input"
-              name="learn"
-              placeholder="Your guess here"
-              aria-label="Word guess entry"
-              aria-required="true"
-              required></input>
-              <button type="submit">Submit your answer</button>
-            </form>
+              <form id="learn-guess-form" onSubmit={(e) => {
+                e.preventDefault();
+                this.handleSubmit(e.target.learn.value)
+                }}>
+                <label htmlFor="learn-guess-input">What's the translation for this word?</label>
+                <input type="text"
+                id="learn-guess-input"
+                name="learn"
+                placeholder="Your guess here"
+                aria-label="Word guess entry"
+                aria-required="true"
+                tabIndex='1'
+                required></input>
+                <button type="submit">Submit your answer</button>
+              </form>
             </div>
         </article>
     } else {
       // return body for incorrectGuess & next word button
       body =
-      <div className="word-page-body">
-        <div className="DisplayScore">
+      <div className="word-page-body" aria-controls="learningRoute-aria">
+
+        <header className="DisplayScore">
           <p>Your total score is: {this.context.totalScore}</p>
           {response}
-        </div>
+        </header>
         <div className="DisplayFeedback">
           <p>The correct translation for <span className="bold">{this.context.prevWord}</span> was <span className="bold">{this.context.answer}</span> and you chose {this.context.guess}!</p>
           <button onClick={this.resetContext}>Try another word!</button>
@@ -135,7 +139,7 @@ export default class WordPage extends Component {
     }
 
     return (
-      <section className='LearningRoute'>
+      <section className='LearningRoute' id='learningRoute-aria' aria-live="polite">
         {body}
       </section>
     );
