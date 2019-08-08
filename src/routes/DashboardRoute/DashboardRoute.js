@@ -39,7 +39,11 @@ class DashboardRoute extends Component {
 
     return (
       <section className="dashboard">
-        <h2 className="language-header">{this.context.language}</h2>
+        <header className='dashboard-header'>
+          <h2 className="language-header">
+            {this.context.language}
+          </h2>
+        </header>
         <div className="bar">
           <p className="score">
           Total correct: {this.context.total_score}
@@ -51,7 +55,9 @@ class DashboardRoute extends Component {
           </Link>
         </div>
         <div className="practice-words">
-        <h3 className="words-header">Words to practice</h3>
+          <header>
+            <h3 className="words-header">Words to practice</h3>
+          </header>
           <ul>
             {mappedWords}
           </ul>

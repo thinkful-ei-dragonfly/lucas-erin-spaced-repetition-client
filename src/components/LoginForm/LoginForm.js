@@ -19,6 +19,7 @@ class LoginForm extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const { username, password } = ev.target
+    debugger;
 
     this.setState({ error: null })
 
@@ -48,10 +49,11 @@ class LoginForm extends Component {
         className='LoginForm'
         onSubmit={this.handleSubmit}
       >
-        <div role='alert'>
+        <div className='alert' role='alert'>
           {error && <p>{error}</p>}
         </div>
-        <div className='input-row'>
+        <fieldset name='username-fields'
+          className='input-row'>
           <img src={ArrowRight} alt='ArrowRight'/>
           <Label htmlFor='login-username-input'>
             Username
@@ -62,8 +64,9 @@ class LoginForm extends Component {
             name='username'
             required
           />
-        </div>
-        <div className='input-row'>
+      </fieldset>
+        <fieldset name='password-fields'
+          className='input-row'>
           <img src={ArrowRight} alt='ArrowRight'/>
           <Label htmlFor='login-password-input'>
             Password
@@ -74,7 +77,7 @@ class LoginForm extends Component {
             type='password'
             required
           />
-        </div>
+      </fieldset>
         <Button type='submit'>
           Login
         </Button>

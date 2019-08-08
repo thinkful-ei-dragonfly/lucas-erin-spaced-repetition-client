@@ -21,9 +21,9 @@ export default class App extends Component {
   render() {
     const { hasError } = this.state
     return (
-      <div className='App'>
+      <>
         <Header />
-        <main>
+        <main className='main-content' role='main'>
           {hasError && (
             <p>There was an error! Oh no!</p>
           )}
@@ -50,7 +50,7 @@ export default class App extends Component {
             />
           </Switch>
         </main>
-      </div>
+      </>
     );
   }
 }

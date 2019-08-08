@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import config from '../../config'
 import TokenService from '../../services/token-service'
-import UserContext from '../../contexts/UserContext'
 import LanguageContext from '../../contexts/LanguageContext'
 
 export default class WordPage extends Component {
   static contextType = LanguageContext
 
   componentDidMount() {
-    // this.context.setNextWord(null)
-    // this.context.setWordCorrectCount(0)
-    // this.context.setWordIncorrectCount(0)
-    // this.context.setTotalScore(null)
+    // resets the component for each load
+    this.context.setIsCorrect(null)
+    this.context.setAnswer(null)
+    this.context.setNextWord(null)
+    this.context.setWordCorrectCount(0)
+    this.context.setWordIncorrectCount(0)
+    this.context.setTotalScore(null)
 
     let accessToken = TokenService.getAuthToken();
 
@@ -35,7 +37,7 @@ export default class WordPage extends Component {
       this.context.setTotalScore(res.totalScore)
     })
   }
-  
+
   //finish tomorrow (next button)
   resetContext = () => {
     this.context.setIsCorrect(null)
@@ -87,18 +89,18 @@ export default class WordPage extends Component {
     if(!this.context.answer){
       // return learningRoute form with question
       body =
-        <div className="word-page-body">
-            <div className="DisplayScore">
+        <article className="word-page-body">
+            <section className="DisplayScore">
               <p>Your total score is: {this.context.totalScore}</p>
-            </div>
+            </section>
 
             <h2>Translate the word:</h2>
             <span className="bold word"><h3>{this.context.nextWord}</h3></span>
 
-            <div className="flexbox">
+            <section className="flexbox">
               <p className="count">You have answered this word correctly <span className="bold green">{this.context.wordCorrectCount}</span> times.</p>
               <p className="count">You have answered this word incorrectly <span className="bold red">{this.context.wordIncorrectCount}</span> times.</p>
-            </div>
+            </section>
 
             <div className="container">
             <form id="learn-guess-form" onSubmit={(e) => {
@@ -116,7 +118,7 @@ export default class WordPage extends Component {
               <button type="submit">Submit your answer</button>
             </form>
             </div>
-          </div>
+        </article>
     } else {
       // return body for incorrectGuess & next word button
       body =

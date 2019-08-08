@@ -17,6 +17,7 @@ class RegistrationForm extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const { name, username, password } = ev.target
+
     AuthApiService.postUser({
       name: name.value,
       username: username.value,
@@ -46,41 +47,47 @@ class RegistrationForm extends Component {
         <div role='alert'>
           {error && <p>{error}</p>}
         </div>
-        <div className='input-row'>
-          <img src={ArrowRight} alt='ArrowRight'/>
-          <Label htmlFor='registration-name-input'>
-            Enter your name<Required />
-          </Label>
-          <Input
-            ref={this.firstInput}
-            id='registration-name-input'
-            name='name'
-            required
-          />
-        </div>
-        <div className='input-row'>
-          <img src={ArrowRight} alt='ArrowRight'/>
-          <Label htmlFor='registration-username-input'>
-            Choose a username<Required />
-          </Label>
-          <Input
-            id='registration-username-input'
-            name='username'
-            required
-          />
-        </div>
-        <div className='input-row'>
-          <img src={ArrowRight} alt='ArrowRight'/>
-          <Label htmlFor='registration-password-input'>
-            Choose a password<Required />
-          </Label>
-          <Input
-            id='registration-password-input'
-            name='password'
-            type='password'
-            required
-          />
-        </div>
+        <fieldset name='name-fields'className='input-row'>
+            <img src={ArrowRight} alt='ArrowRight'/>
+            <Label htmlFor='registration-name-input'>
+              Enter your name<Required />
+            </Label>
+            <Input
+              ref={this.firstInput}
+              id='registration-name-input'
+              name='name'
+              required
+            />
+        </fieldset>
+
+          <fieldset
+            name='username-fields'
+            className='input-row'>
+            <img src={ArrowRight} alt='ArrowRight'/>
+            <Label htmlFor='registration-username-input'>
+              Choose a username<Required />
+            </Label>
+            <Input
+              id='registration-username-input'
+              name='username'
+              required
+            />
+        </fieldset>
+          <fieldset
+            name='password-fields'
+            className='input-row'>
+            <img src={ArrowRight} alt='ArrowRight'/>
+            <Label htmlFor='registration-password-input'>
+              Choose a password<Required />
+            </Label>
+            <Input
+              id='registration-password-input'
+              name='password'
+              type='password'
+              required
+            />
+        </fieldset>
+
         <footer>
           <Button type='submit'>
             Sign up

@@ -69,7 +69,7 @@ body {
 
 // Header
 
-header {
+.app-header {
   display: flex;
   position: sticky;
   position: -webkit-sticky;
@@ -86,21 +86,40 @@ header {
   align-items: center;
   background-color: $green;
   h1 {
-    font-size: 1.5em;
+    // this styling is intended for mobile devices
+    // aka "mobile first"
+    font-size: 1em;
+    // use media queries for larger devices / screens
+    @media (min-width: 768px) {
+      font-size: 1.5em;
+    }
   }
   a {
     text-decoration: none;
   }
   .header-link:last-of-type {
-    padding-left: 15px;
+    padding-left: 5px;
+
+    @media (min-width: 768px) {
+      padding-left: 15px;
+    }
+
+  }
+  .logged-in-controls {
+    display: flex;
   }
 }
 
 
 // Main
 
-main {
-  padding: 25px;
+.main-content {
+  padding: 15px;
+
+  @media (min-width: 768px) {
+    padding: 25px;
+  }
+
 
   // Registration Route
   .tagline {
@@ -121,7 +140,8 @@ main {
   #registration-box,
   .LoginForm {
     //
-    .input-row {
+    .input-row,
+    fieldset {
       img {
         vertical-align: middle;
         padding-right: 15px;
@@ -129,7 +149,11 @@ main {
         width: 100%;
       }
       padding: 10px 0;
+      border: 0;
       border-bottom: 1px solid;
+      margin: 0;
+
+
     }
     label {
       padding-right: 25px;
@@ -187,11 +211,11 @@ main {
         border: none;
         padding: 7px;
         text-decoration: none;
-        background: rgb(216, 216, 216);  
+        background: rgb(216, 216, 216);
         font-size: 18px;
         cursor: pointer;
         text-align: center;
-        transition: background 250ms ease-in-out, 
+        transition: background 250ms ease-in-out,
                     transform 150ms ease;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -205,14 +229,14 @@ main {
         outline: 1px solid #fff;
         outline-offset: -4px;
       }
-      
+
       .start:active {
         transform: scale(0.99);
       }
     }
 
     @media screen and (max-width: 490px) {
-  
+
       .bar{
         height: 100px;
         text-align: center;
@@ -222,7 +246,7 @@ main {
         display: inline-block;
         margin: auto;
       }
-  
+
       .start{
         float: none;
         display: inline-block;
@@ -232,7 +256,7 @@ main {
     }
 
     @media screen and (min-width: 490px) {
-  
+
       .start{
         float: right;
       }
@@ -318,7 +342,7 @@ main {
     .bold{
       font-weight: bold;
     }
-    
+
     h2, h3{
       line-height: 30px;
       margin: 10px auto;
@@ -363,11 +387,11 @@ main {
         border: none;
         padding: 7px;
         text-decoration: none;
-        background: $green;  
+        background: $green;
         font-size: 18px;
         cursor: pointer;
         text-align: center;
-        transition: background 250ms ease-in-out, 
+        transition: background 250ms ease-in-out,
                     transform 150ms ease;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -381,7 +405,7 @@ main {
         outline: 1px solid #fff;
         outline-offset: -4px;
       }
-      
+
       button:active {
         transform: scale(0.99);
       }
@@ -404,11 +428,11 @@ main {
         border: none;
         padding: 7px;
         text-decoration: none;
-        background: white;  
+        background: white;
         font-size: 18px;
         cursor: pointer;
         text-align: center;
-        transition: background 250ms ease-in-out, 
+        transition: background 250ms ease-in-out,
                     transform 150ms ease;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -422,7 +446,7 @@ main {
         outline: 1px solid #fff;
         outline-offset: -4px;
       }
-      
+
       button:active {
         transform: scale(0.99);
       }

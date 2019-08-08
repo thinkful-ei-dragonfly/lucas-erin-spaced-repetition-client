@@ -13,35 +13,42 @@ class Header extends Component {
 
   renderLogoutLink() {
     return (
-      <div>
-        <span>
+      <nav className='logged-in-controls'>
+        <span className='header-user-name'>
           {this.context.user.name}
         </span>
-        <nav>
-          <Link
-            onClick={this.handleLogoutClick}
-            to='/login'>
-            Logout
-          </Link>
-        </nav>
-      </div>
+        <Link
+          onClick={this.handleLogoutClick}
+          to='/login'
+          className='header-link logout'>
+          Logout
+        </Link>
+      </nav>
     )
   }
 
   renderLoginLink() {
     return (
-      <nav>
-        <Link to='/login'className="header-link login">Login</Link>
+      <nav className='login-controls' role='navigation'>
+        <Link
+          to='/login'
+          className="header-link login">
+          Login
+        </Link>
         {' '}
-        <Link to='/register'className="header-link register">Sign up</Link>
+        <Link
+          to='/register'
+          className="header-link register">
+          Sign up
+        </Link>
       </nav>
     )
   }
 
   render() {
     return (
-      <header>
-        <h1>
+      <header className='app-header' role='banner'>
+        <h1 className='header-h1'>
           <Link to='/' className="main-link">
             Apprendere — Spaced repetition
           </Link>
