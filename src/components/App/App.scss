@@ -112,8 +112,11 @@ body {
     .login, .register{
       display: block;
 
-      @media (min-width: 768px) {
+      @media (min-width: 414px) {
         display: inline;
+      }
+      @media (min-width: 768px) {
+        font-size: 1.25em;
       }
     }
   }
@@ -139,13 +142,12 @@ body {
 
   @media (min-width: 768px) {
     padding: 25px;
-    text-align: left;
   }
 
 
   // Registration Route
 
-  .registrationRoute{
+  .registrationRoute, .loginRoute{
     @media (min-width: 768px) {
       width: 60%;
       margin: auto;
