@@ -139,7 +139,7 @@ export default class WordPage extends Component {
     }
 
     return (
-      <section className='LearningRoute' id='learningRoute-aria' aria-live="polite">
+      <section className='LearningRoute' id='learningRoute-aria' aria-live="assertive">
         {body}
       </section>
     );
