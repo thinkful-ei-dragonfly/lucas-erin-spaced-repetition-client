@@ -44,6 +44,7 @@ class DashboardRoute extends Component {
             {this.context.language}
           </h2>
         </header>
+
         <div className="bar">
           <p className="score">
           Total correct: {this.context.total_score}
@@ -54,6 +55,7 @@ class DashboardRoute extends Component {
             <button className="start">Start practicing</button>
           </Link>
         </div>
+        
         <div className="practice-words">
           <header>
             <h3 className="words-header">Words to practice</h3>
