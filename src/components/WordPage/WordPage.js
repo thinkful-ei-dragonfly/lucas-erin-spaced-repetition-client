@@ -107,6 +107,7 @@ export default class WordPage extends Component {
             <div className="container">
               <form id="learn-guess-form" onSubmit={(e) => {
                 e.preventDefault();
+                console.log(e.target.learn.value)
                 this.handleSubmit(e.target.learn.value)
                 }}>
                 <label htmlFor="learn-guess-input">What's the translation for this word?</label>

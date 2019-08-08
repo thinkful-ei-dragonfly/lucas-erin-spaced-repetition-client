@@ -67,6 +67,10 @@ body {
   color: red;
 }
 
+.bold{
+  font-weight: bold;
+}
+
 // Header
 
 .app-header {
@@ -326,17 +330,32 @@ body {
     border: 1px black solid;
     text-align: center;
     margin: auto;
-
-    .count{
-      flex: 30%;
-      // background: lightgrey;
-      border: 1px black solid;
-      margin: 15px 4%;
-      padding: 5px;
+    @media screen and (min-width: 768px) {
+      width: 75%;
     }
 
-    .bold{
-      font-weight: bold;
+    h2, h3{
+      text-transform: uppercase;
+    }
+
+    .answers-count{
+      width: 90%;
+      margin: auto;
+      @media screen and (min-width: 768px) {
+        display: flex;
+        width: 83%;
+      }
+
+      .count{
+        border: 1px black solid;
+        margin: 15px auto;
+        padding: 5px;
+
+        @media screen and (min-width: 768px) {
+          margin: 15px 2%;
+          flex: 46%;
+        }
+      }
     }
 
     h2, h3{
@@ -345,17 +364,14 @@ body {
     }
 
     h2{
-      margin-top: 50px;
-    }
-
-    .flexbox{
-      display: flex;
+      margin-top: 20px;
     }
 
     .DisplayScore{
 
       h2{
         margin: 25px auto;
+        width: 90%;
       }
 
       p {
@@ -365,6 +381,7 @@ body {
         padding-top: 5px;
         margin: 0px;
         border-bottom: 1px solid black;
+        text-transform: uppercase;
         top: 0;
       }
 
@@ -372,97 +389,71 @@ body {
 
     .DisplayFeedback{
       margin: 25px auto;
+      width: 90%;
 
       p{
         margin: 25px auto;
+
+        @media screen and (min-width: 768px) {
+          width: 75%;
+        }
       }
 
-      button{
-        top:0;
-        display: inline-block;
-        border: none;
-        padding: 7px;
-        text-decoration: none;
-        background: $green;
-        font-size: 18px;
-        cursor: pointer;
+      button {
         text-align: center;
-        transition: background 250ms ease-in-out,
-                    transform 150ms ease;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-      }
-      button:hover,
-      button:focus {
-        background: rgb(216, 216, 216);
-      }
-
-      button:focus {
-        outline: 1px solid #fff;
-        outline-offset: -4px;
-      }
-
-      button:active {
-        transform: scale(0.99);
+        background-color: $green;
+        padding:  10px 15px;
+        border: 1px solid;
+        text-transform: uppercase;
+        margin: 10px auto;
+  
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
     .container{
-      width: 80%;
+      width: 90%;
       margin: auto;
+
+      @media screen and (min-width: 768px) {
+        width: 80%;
+      }
     }
 
     #learn-guess-form{
       background: $green;
       padding: 20px 10px;
-      margin: 25px auto;
+      margin: 15px auto;
       border: solid black 1px;
 
-      button{
-        top:0;
-        display: inline-block;
-        border: none;
-        padding: 7px;
-        text-decoration: none;
-        background: white;
-        font-size: 18px;
-        cursor: pointer;
+      button {
+        width: 70%;
         text-align: center;
-        transition: background 250ms ease-in-out,
-                    transform 150ms ease;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-      }
-      button:hover,
-      button:focus {
-        background: rgb(216, 216, 216);
-      }
+        background-color: white;
+        padding:  10px 15px;
+        border: 1px solid;
+        text-transform: uppercase;
+        margin: 10px auto;
+  
+        @media screen and (min-width: 768px) {
+          width: 60%;
+        }
 
-      button:focus {
-        outline: 1px solid #fff;
-        outline-offset: -4px;
-      }
-
-      button:active {
-        transform: scale(0.99);
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       input{
         width: 90%;
         margin: 15px auto;
+
+        @media screen and (min-width: 768px) {
+          width: 60%;
+        }
       }
     }
   }
-
-  @media screen and (min-width: 1000px){
-    .LearningRoute{
-      width: 75%;
-    }
-
-    #learn-guess-form{
-      width: 75%;
-      margin: auto;
-    }
-  }
-
 }
