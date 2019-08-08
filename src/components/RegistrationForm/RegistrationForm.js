@@ -48,10 +48,12 @@ class RegistrationForm extends Component {
           {error && <p>{error}</p>}
         </div>
         <fieldset name='name-fields'className='input-row'>
+            <div className="labels">
             <img src={ArrowRight} alt='ArrowRight'/>
             <Label htmlFor='registration-name-input'>
               Enter your name<Required />
             </Label>
+            </div>
             <Input
               ref={this.firstInput}
               id='registration-name-input'
@@ -63,10 +65,12 @@ class RegistrationForm extends Component {
           <fieldset
             name='username-fields'
             className='input-row'>
+            <div className="labels">
             <img src={ArrowRight} alt='ArrowRight'/>
             <Label htmlFor='registration-username-input'>
               Choose a username<Required />
             </Label>
+            </div>
             <Input
               id='registration-username-input'
               name='username'
@@ -76,10 +80,12 @@ class RegistrationForm extends Component {
           <fieldset
             name='password-fields'
             className='input-row'>
+            <div className="labels">
             <img src={ArrowRight} alt='ArrowRight'/>
             <Label htmlFor='registration-password-input'>
               Choose a password<Required />
             </Label>
+            </div>
             <Input
               id='registration-password-input'
               name='password'

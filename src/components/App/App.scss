@@ -78,25 +78,46 @@ body {
   position: -o-sticky;
   top: 0;
   justify-content: space-between;
-  padding: 10px 25px;
+  padding: 10px 10px;
   border-bottom: 1px solid;
   font-family: $sans;
   text-transform: uppercase;
   letter-spacing: -.025em;
   align-items: center;
   background-color: $green;
+
+  @media (min-width: 768px) {
+    padding: 10px 25px;
+  }
+
   h1 {
     // this styling is intended for mobile devices
     // aka "mobile first"
     font-size: 1em;
+    flex: 60%;
     // use media queries for larger devices / screens
     @media (min-width: 768px) {
       font-size: 1.5em;
     }
   }
+
   a {
     text-decoration: none;
   }
+
+  .login-controls {
+    flex: 40%;
+    text-align: right;
+
+    .login, .register{
+      display: block;
+
+      @media (min-width: 768px) {
+        display: inline;
+      }
+    }
+  }
+
   .header-link:last-of-type {
     padding-left: 5px;
 
@@ -118,10 +139,18 @@ body {
 
   @media (min-width: 768px) {
     padding: 25px;
+    text-align: left;
   }
 
 
   // Registration Route
+
+  .registrationRoute{
+    @media (min-width: 768px) {
+      width: 60%;
+      margin: auto;
+    }
+
   .tagline {
     font-size: 2em;
     font-family: $sans;
@@ -152,16 +181,18 @@ body {
       border: 0;
       border-bottom: 1px solid;
       margin: 0;
-
-
     }
+
     label {
       padding-right: 25px;
     }
+
     input {
       padding: 10px;
       border: 1px solid;
+      width: 100%;
     }
+
     button {
       display: block;
       background-color: $green;
@@ -169,14 +200,18 @@ body {
       width: 100%;
       border: 1px solid;
       text-transform: uppercase;
-      margin-top: 15px;
-      margin-bottom: 5px;
+      margin: 20px auto;
 
       &:hover {
         cursor: pointer;
       }
     }
+
+    footer{
+      text-align: center;
+    }
   }
+}
 
   // Login Page
 
