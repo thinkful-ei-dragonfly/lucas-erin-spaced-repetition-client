@@ -47,7 +47,7 @@ class DashboardRoute extends Component {
 
         <div className="bar">
           <p className="score">
-          Total correct: {this.context.total_score}
+          Total correct answers: {this.context.total_score}
           </p>
           <Link
             to='/learn'
