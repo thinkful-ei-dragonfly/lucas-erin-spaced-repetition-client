@@ -45,9 +45,9 @@ export default class WordPage extends Component {
   }
 
   handleSubmit(userGuess) {
-    this.context.setGuess(userGuess)
+    this.context.setGuess(userGuess.toLowerCase())
     let accessToken = TokenService.getAuthToken();
-    let guessBody = JSON.stringify({guess: userGuess})
+    let guessBody = JSON.stringify({guess: userGuess.toLowerCase()})
     console.log(guessBody)
 
     const myOptions = {
