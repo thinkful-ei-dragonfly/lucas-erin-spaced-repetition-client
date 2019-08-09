@@ -266,7 +266,7 @@ body {
           margin: 20px auto;
           float: right;
         }
-  
+
         &:hover {
           cursor: pointer;
         }
@@ -406,7 +406,7 @@ body {
         border: 1px solid;
         text-transform: uppercase;
         margin: 10px auto;
-  
+
         &:hover {
           cursor: pointer;
         }
@@ -427,6 +427,10 @@ body {
       padding: 20px 10px;
       margin: 15px auto;
       border: solid black 1px;
+      input,
+      label {
+        display: block;
+      }
 
       button {
         width: 70%;
@@ -436,7 +440,7 @@ body {
         border: 1px solid;
         text-transform: uppercase;
         margin: 10px auto;
-  
+
         @media screen and (min-width: 768px) {
           width: 60%;
         }
