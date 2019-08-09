@@ -1,4 +1,20 @@
-# Spaced Repetition Capstone
+# Apprendere: Spaced Repetition
+
+## Overview
+
+Apprendere is an app which helps users learn Italian using “spaced repetition” to help memorize words in a foreign language. 
+
+This app maintains a list of Italian words in a database that also includes records of a user’s total score, each word’s correct and incorrect count, and it’s current place in memory. 
+
+![Flashcard List](/src/images/flashcard-list.JPG "List of user flashcards")
+
+When the front end sends a guess, our backend server utilizes an algorithm to determine if the guess was correct or incorrect. As words are guessed correctly or incorrectly, those numbers increase accordingly and the words move up or down the list.
+
+![Flashcard Guess](/src/images/flashcard-guess.JPG "User sees success rate of guessing current word and is prompted for guess")
+
+![Flashcard Response](/src/images/flashcard-response.JPG "App evaluates user answer and proceeds to next card")
+
+When the frontend requests the words again, the server responds with an updated list. Therefore, the user spends more time working on the words that they are having trouble with rather than the words they seem to already know.
 
 ## Setup
 
