@@ -48,7 +48,6 @@ export default class WordPage extends Component {
     this.context.setGuess(userGuess.toLowerCase())
     let accessToken = TokenService.getAuthToken();
     let guessBody = JSON.stringify({guess: userGuess.toLowerCase()})
-    console.log(guessBody)
 
     const myOptions = {
       method: 'POST',
@@ -67,7 +66,6 @@ export default class WordPage extends Component {
     .then(res=> {
       // we get back the linkedlist with a head
       // the head has a value and a next property
-      console.log(res);
       this.context.setIsCorrect(res.isCorrect)
       this.context.setAnswer(res.answer)
       this.context.setPrevWord(this.context.nextWord)
@@ -107,7 +105,6 @@ export default class WordPage extends Component {
             <div className="container">
               <form id="learn-guess-form" onSubmit={(e) => {
                 e.preventDefault();
-                console.log(e.target.learn.value)
                 this.handleSubmit(e.target.learn.value)
                 }}>
                 <label htmlFor="learn-guess-input">What's the translation for this word?</label>
