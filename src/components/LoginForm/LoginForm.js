@@ -49,7 +49,7 @@ class LoginForm extends Component {
         onSubmit={this.handleSubmit}
       >
         <div className='alert' role='alert'>
-          {error && <p>{error}</p>}
+          {error && <p className="error">{error}</p>}
         </div>
         <fieldset name='username-fields'
           className='input-row'>
