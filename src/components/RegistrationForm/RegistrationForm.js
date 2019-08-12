@@ -82,10 +82,12 @@ class RegistrationForm extends Component {
             <Label htmlFor='registration-password-input'>
               Choose a password<Required />
             </Label>
+            <label className='registerHelper'>Password must be at least 8 characters and requires 1 Uppercase, 1 Lowercase, 1 Number, and 1 Unique Character.</label>
             <Input
               id='registration-password-input'
               name='password'
               type='password'
+              placeholder='1 Upp'
               tabIndex='0'
               required
             />

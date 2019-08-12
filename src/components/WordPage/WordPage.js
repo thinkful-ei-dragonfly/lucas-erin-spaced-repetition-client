@@ -114,7 +114,7 @@ export default class WordPage extends Component {
                 placeholder="Your guess here"
                 aria-label="Word guess entry"
                 aria-required="true"
-                tabIndex='1'
+                tabIndex='0'
                 required></input>
                 <button type="submit">Submit your answer</button>
               </form>

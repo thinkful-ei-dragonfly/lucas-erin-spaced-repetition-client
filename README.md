@@ -1,5 +1,10 @@
 # Apprendere: Spaced Repetition
 
+## Engineering Team
+
+1. [Erin Dustin](https://github.com/erincdustin)
+2. [Lucas Vocos](https://github.com/lucasvocos)
+
 ## Overview
 
 Apprendere is an app which helps users learn Italian using “spaced repetition” to help memorize words in a foreign language.
