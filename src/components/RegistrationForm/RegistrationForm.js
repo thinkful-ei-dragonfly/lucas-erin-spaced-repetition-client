@@ -87,7 +87,6 @@ class RegistrationForm extends Component {
               id='registration-password-input'
               name='password'
               type='password'
-              placeholder='1 Upp'
               tabIndex='0'
               required
             />
